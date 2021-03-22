@@ -2,6 +2,7 @@
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,18 +12,22 @@ namespace BenchmarkingExcelPackages
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main()
         {
-            //epplus
-            var EPPlusImport = new ImportEPPlus();
-            EPPlusImport.ReadDataFromFile();
-            EPPlusImport.WriteToNewFile();
+            //EPPlus
+            var EPPlus = new EPPlus();
+            await EPPlus.ReadDataAsync();
+            await EPPlus.WriteDataAsync();
+            Console.WriteLine("EPPlus Read/Write complete...");
 
             //NPOI
 
             //ExcelDataReader
 
+
+            //BenchmarkDotNet
             var summary = BenchmarkRunner.Run(typeof(Program).Assembly);
+            return;
         }
     }
 }

@@ -272,8 +272,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Import-epplus.cs" />
-    <Compile Include="Import-ExcelDataReader.cs" />
+    <Compile Include="EPPlus.cs" />
+    <Compile Include="Models\ExcelData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
