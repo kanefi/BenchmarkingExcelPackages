@@ -25,7 +25,7 @@ namespace BenchmarkingExcelPackages
         [Benchmark]
         public DataTable ReadData()
         {
-            var file = File.ReadAllBytes(@"C:\Users\NBURNESS\source\repos\BenchmarkingExcelPackages\lotsofdata.xlsx");
+            var file = File.ReadAllBytes(@"C:\Users\NBURNESS\source\repos\BenchmarkingExcelPackages\ExcelFiles\lotsofdata.xlsx");
 
             var dataTable = new DataTable("Data");
 
@@ -150,7 +150,7 @@ namespace BenchmarkingExcelPackages
                 specificCell.Style.Border.Left.Style = ExcelBorderStyle.Double;
 
                 // save the newly created file.
-                FileInfo fi = new FileInfo(@"C:\Users\NBURNESS\source\repos\BenchmarkingExcelPackages\GeneratedFile.xlsx");
+                FileInfo fi = new FileInfo(@"C:\Users\NBURNESS\source\repos\BenchmarkingExcelPackages\ExcelFiles\GeneratedFile.xlsx");
                 excelPackage.SaveAs(fi);
                 return true;
             }
