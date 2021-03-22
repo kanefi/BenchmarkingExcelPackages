@@ -151,7 +151,7 @@ namespace BenchmarkingExcelPackages
                 specificCell.Style.Border.Left.Style = ExcelBorderStyle.Double;
 
                 // save the newly created file.
-                FileInfo fi = new FileInfo(@"C:\Users\NBURNESS\source\repos\BenchmarkingExcelPackages\ExcelFiles\GeneratedFile.xlsx");
+                FileInfo fi = new FileInfo(@"C:\Users\NBURNESS\source\repos\BenchmarkingExcelPackages\ExcelFiles\EPPlusGeneratedFile.xlsx");
                 excelPackage.SaveAs(fi);
                 return true;
             }
