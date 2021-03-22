@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace BenchmarkingExcelPackages
 {
+    [MemoryDiagnoser]
     public class EPPlus
     {
         [Benchmark]
@@ -25,7 +26,7 @@ namespace BenchmarkingExcelPackages
         [Benchmark]
         public DataTable ReadData()
         {
-            var file = File.ReadAllBytes(@"C:\Users\NBURNESS\source\repos\BenchmarkingExcelPackages\ExcelFiles\lotsofdata.xlsx");
+            var file = File.ReadAllBytes(@"C:\Users\NBURNESS\source\repos\BenchmarkingExcelPackages\ExcelFiles\SampleData.xlsx");
 
             var dataTable = new DataTable("Data");
 
