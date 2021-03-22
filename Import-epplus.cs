@@ -19,7 +19,7 @@ namespace BenchmarkingExcelPackages
             List<string> excelData = new List<string>();
 
             // read excel file
-            var excelFile = File.ReadAllBytes(@"C:\Users\NBURNESS\source\repos\BenchmarkingExcelPackages\lotsofdata.xlsx");
+            var excelFile = File.ReadAllBytes(@"C:\Users\FKANE\source\repos\BenchmarkingExcelPackages\lotsofdata.xlsx");
 
             // create new excel package in a memory stream
             using (MemoryStream stream = new MemoryStream(excelFile))
@@ -102,7 +102,7 @@ namespace BenchmarkingExcelPackages
                 specificCell.Style.Border.Left.Style = ExcelBorderStyle.Double;
 
                 // save the newly created file.
-                FileInfo fi = new FileInfo(@"C:\Users\NBURNESS\source\repos\BenchmarkingExcelPackages\CreatedFile.xlsx");
+                FileInfo fi = new FileInfo(@"C:\Users\FKANE\source\repos\BenchmarkingExcelPackages\CreatedFileFK.xlsx");
                 excelPackage.SaveAs(fi);
             }
         }
