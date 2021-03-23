@@ -25,8 +25,15 @@ namespace BenchmarkingExcelPackages
 
         [Benchmark]
         public DataTable ReadData()
-        {
-            var file = File.ReadAllBytes(@"C:\Users\NBURNESS\source\repos\BenchmarkingExcelPackages\ExcelFiles\SampleData.xlsx");
+        {   
+            // starting would be either /bin/debug or /bin/release...
+            string initialDir = Directory.GetCurrentDirectory();
+            // so go up one level to /bin
+            string parentDir = Directory.GetParent(initialDir).ToString();
+            // and up another to /BenchmarkingExcelPackages
+            string targetDir = Directory.GetParent(parentDir).ToString();
+
+            byte[] file = File.ReadAllBytes($"{targetDir}\\ExcelFiles\\SampleData.xlsx");
 
             var dataTable = new DataTable("Data");
 
@@ -150,9 +157,13 @@ namespace BenchmarkingExcelPackages
                 specificCell.Style.Border.Bottom.Style = ExcelBorderStyle.Double;
                 specificCell.Style.Border.Left.Style = ExcelBorderStyle.Double;
 
-                // save the newly created file.
-                FileInfo fi = new FileInfo(@"C:\Users\NBURNESS\source\repos\BenchmarkingExcelPackages\ExcelFiles\EPPlusGeneratedFile.xlsx");
-                excelPackage.SaveAs(fi);
+                string initialDir = Directory.GetCurrentDirectory();
+                string parentDir = Directory.GetParent(initialDir).ToString();
+                string targetDir = Directory.GetParent(parentDir).ToString();
+
+                FileInfo fileInfo = new FileInfo($"{targetDir}\\ExcelFiles\\EPPlusGeneratedFile.xlsx");
+                excelPackage.SaveAs(fileInfo);
+
                 return true;
             }
         }
